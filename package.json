@@ -44,7 +44,6 @@
     "test-e2e-ios-multi": "npm run test-e2e-ios -- --multi",
     "test-all": "node ./scripts/test-all",
     "prerelease": "npm run build",
-    "prepare": "npm run build",
     "release": "node ./scripts/release",
     "local-docs": "node ./scripts/local-docs",
     "gen-docs": "ts-node ./scripts/gen-docs/Main"
