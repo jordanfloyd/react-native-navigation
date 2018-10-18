@@ -26,6 +26,7 @@
 						 presenter:(RNNViewControllerPresenter *)presenter {
 	self = [super init];
 	
+	self.delegate = self;
 	self.options = options;
 	
 	self.layoutInfo = layoutInfo;
@@ -61,7 +62,7 @@
 }
 
 - (void)mergeOptions:(RNNNavigationOptions *)options {
-	[_presenter mergeOptions:options];
+	[_presenter mergeOptions:options resolvedOptions:self.resolveOptions];
 	[((UIViewController<RNNLayoutProtocol> *)self.parentViewController) mergeOptions:options];
 }
 
