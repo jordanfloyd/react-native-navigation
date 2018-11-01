@@ -51,27 +51,27 @@ export declare class Navigation {
     /**
      * Dismiss a modal by componentId. The dismissed modal can be anywhere in the stack.
      */
-    dismissModal(componentId: string, mergeOptions?: any): Promise<any>;
+    dismissModal(componentId: string, mergeOptions?: Options): Promise<any>;
     /**
      * Dismiss all Modals
      */
-    dismissAllModals(mergeOptions?: any): Promise<any>;
+    dismissAllModals(mergeOptions?: Options): Promise<any>;
     /**
      * Push a new layout into this screen's navigation stack.
      */
-    push(componentId: string, layout: Layout): Promise<any>;
+    push<P>(componentId: string, layout: Layout<P>): Promise<any>;
     /**
      * Pop a component from the stack, regardless of it's position.
      */
-    pop(componentId: string, mergeOptions?: any): Promise<any>;
+    pop(componentId: string, mergeOptions?: Options): Promise<any>;
     /**
      * Pop the stack to a given component
      */
-    popTo(componentId: string, mergeOptions?: any): Promise<any>;
+    popTo(componentId: string, mergeOptions?: Options): Promise<any>;
     /**
      * Pop the component's stack to root.
      */
-    popToRoot(componentId: string, mergeOptions?: any): Promise<any>;
+    popToRoot(componentId: string, mergeOptions?: Options): Promise<any>;
     /**
      * Sets new root component to stack.
      */
