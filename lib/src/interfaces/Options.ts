@@ -434,6 +434,10 @@ export interface OptionsBottomTab {
    */
   badge?: string;
   /**
+   * Set the background color of the badge that is overlayed over the component
+   */
+  badgeColor?: string;
+  /**
    * Set a testID to reference the tab in E2E tests
    */
   testID?: string;
@@ -753,4 +757,10 @@ setRoot: {
    * #### (iOS specific)
    */
   rootBackgroundImage?: ImageRequireSource;
+  /**
+   * Enable or disable automatically blurring focused input, dismissing keyboard on unmount
+   * #### (Android specific)
+   * @default false
+   */
+  blurOnUnmount?: boolean;
 }

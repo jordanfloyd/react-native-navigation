@@ -1,3 +1,4 @@
+#import "RNNRootViewCreator.h"
 
 typedef void (^RNNReactViewReadyCompletionBlock)(void);
 
@@ -6,5 +7,9 @@ typedef void (^RNNReactViewReadyCompletionBlock)(void);
 - (void)waitForReactViewRender:(BOOL)wait perform:(RNNReactViewReadyCompletionBlock)readyBlock;
 
 - (void)bindViewController:(UIViewController *)viewController;
+
+- (BOOL)isCustomTransitioned;
+
+- (id<RNNRootViewCreator>)creator;
 
 @end
