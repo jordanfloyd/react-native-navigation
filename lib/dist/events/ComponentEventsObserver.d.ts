@@ -8,7 +8,7 @@ export declare class ComponentEventsObserver {
     private alreadyRegistered;
     constructor(nativeEventsReceiver: NativeEventsReceiver);
     registerOnceForAllComponentEvents(): void;
-    bindComponent(component: React.Component<any>): EventSubscription;
+    bindComponent(component: React.Component<any>, componentId?: string): EventSubscription;
     unmounted(componentId: string): void;
     notifyComponentDidAppear(event: ComponentDidAppearEvent): void;
     notifyComponentDidDisappear(event: ComponentDidDisappearEvent): void;

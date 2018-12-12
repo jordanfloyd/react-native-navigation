@@ -133,6 +133,11 @@ export interface OptionsTopBarTitle {
      * #### (Android specific)
      */
     height?: number;
+    /**
+     * Title alignment
+     * #### (Android specific)
+     */
+    alignment?: 'center' | 'fill';
 }
 export interface OptionsTopBarSubtitle {
     /**
@@ -222,6 +227,10 @@ export interface OptionsTopBarButton {
      */
     component?: {
         name: string;
+        /**
+         * Properties to pass down to the component
+         */
+        passProps?: object;
     };
     /**
      * Set the button text
@@ -499,6 +508,12 @@ export interface OptionsSideMenu {
      * Configure the right side menu
      */
     right?: SideMenuSide;
+    /**
+     * Configure how a user is allowed to open a drawer using gestures
+     * #### (iOS specific)
+     * @default 'entireScreen'
+     */
+    openGestureMode?: 'entireScreen' | 'bezel';
 }
 export interface OptionsOverlay {
     /**

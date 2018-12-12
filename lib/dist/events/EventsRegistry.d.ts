@@ -21,5 +21,5 @@ export declare class EventsRegistry {
     registerSearchBarCancelPressedListener(callback: (event: SearchBarCancelPressedEvent) => void): EventSubscription;
     registerPreviewCompletedListener(callback: (event: PreviewCompletedEvent) => void): EventSubscription;
     registerCommandListener(callback: (name: string, params: any) => void): EventSubscription;
-    bindComponent(component: React.Component<any>): EventSubscription;
+    bindComponent(component: React.Component<any>, componentId?: string): EventSubscription;
 }

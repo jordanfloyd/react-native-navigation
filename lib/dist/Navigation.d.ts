@@ -1,10 +1,10 @@
+/// <reference types="react" />
 import { Store } from './components/Store';
 import { EventsRegistry } from './events/EventsRegistry';
 import { ComponentProvider } from 'react-native';
-import { ComponentType } from 'react';
 import { LayoutRoot, Layout } from './interfaces/Layout';
 import { Options } from './interfaces/Options';
-export declare class Navigation {
+export declare class NavigationRoot {
     readonly Element: React.ComponentType<{
         elementId: any;
         resizeMode?: any;
@@ -21,17 +21,18 @@ export declare class Navigation {
     private readonly eventsRegistry;
     private readonly commandsObserver;
     private readonly componentEventsObserver;
+    private readonly componentWrapper;
     constructor();
     /**
      * Every navigation component in your app must be registered with a unique name.
      * The component itself is a traditional React component extending React.Component.
      */
-    registerComponent(componentName: string, getComponentClassFunc: ComponentProvider): ComponentType<any>;
+    registerComponent(componentName: string | number, getComponentClassFunc: ComponentProvider): ComponentProvider;
     /**
      * Utility helper function like registerComponent,
      * wraps the provided component with a react-redux Provider with the passed redux store
      */
-    registerComponentWithRedux(componentName: string, getComponentClassFunc: ComponentProvider, ReduxProvider: any, reduxStore: any): ComponentType<any>;
+    registerComponentWithRedux(componentName: string | number, getComponentClassFunc: ComponentProvider, ReduxProvider: any, reduxStore: any): ComponentProvider;
     /**
      * Reset the app to a new layout
      */
