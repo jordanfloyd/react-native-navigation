@@ -82,7 +82,7 @@ public class ModalStack {
 
     public void dismissAllModals(ViewController root, Options mergeOptions, CommandListener listener) {
         if (modals.isEmpty()) {
-            listener.onError("Nothing to dismiss");
+            // listener.onError("Nothing to dismiss");
             return;
         }
 
