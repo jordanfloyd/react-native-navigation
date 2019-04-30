@@ -1,16 +1,13 @@
-/// <reference types="react" />
-import { Store } from './components/Store';
 import { EventsRegistry } from './events/EventsRegistry';
 import { ComponentProvider } from 'react-native';
+import { SharedElement } from './adapters/SharedElement';
+import { TouchablePreview } from './adapters/TouchablePreview';
 import { LayoutRoot, Layout } from './interfaces/Layout';
 import { Options } from './interfaces/Options';
 export declare class NavigationRoot {
-    readonly Element: React.ComponentType<{
-        elementId: any;
-        resizeMode?: any;
-    }>;
-    readonly TouchablePreview: React.ComponentType<any>;
-    readonly store: Store;
+    readonly Element: typeof SharedElement;
+    readonly TouchablePreview: typeof TouchablePreview;
+    private readonly store;
     private readonly nativeEventsReceiver;
     private readonly uniqueIdProvider;
     private readonly componentRegistry;
@@ -27,7 +24,7 @@ export declare class NavigationRoot {
      * Every navigation component in your app must be registered with a unique name.
      * The component itself is a traditional React component extending React.Component.
      */
-    registerComponent(componentName: string | number, getComponentClassFunc: ComponentProvider): ComponentProvider;
+    registerComponent(componentName: string | number, componentProvider: ComponentProvider, concreteComponentProvider?: ComponentProvider): ComponentProvider;
     /**
      * Utility helper function like registerComponent,
      * wraps the provided component with a react-redux Provider with the passed redux store
@@ -48,7 +45,7 @@ export declare class NavigationRoot {
     /**
      * Show a screen as a modal.
      */
-    showModal(layout: Layout): Promise<any>;
+    showModal<P>(layout: Layout<P>): Promise<any>;
     /**
      * Dismiss a modal by componentId. The dismissed modal can be anywhere in the stack.
      */
@@ -76,11 +73,11 @@ export declare class NavigationRoot {
     /**
      * Sets new root component to stack.
      */
-    setStackRoot(componentId: string, layout: Layout): Promise<any>;
+    setStackRoot<P>(componentId: string, layout: Layout<P> | Array<Layout<P>>): Promise<any>;
     /**
      * Show overlay on top of the entire app
      */
-    showOverlay(layout: Layout): Promise<any>;
+    showOverlay<P>(layout: Layout<P>): Promise<any>;
     /**
      * dismiss overlay by componentId
      */
